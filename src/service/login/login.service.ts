@@ -3,6 +3,7 @@ import {
   LoginBodyRequestType,
   LoginResponseType,
 } from "@/types/authType/login";
+import { getSession } from "next-auth/react";
 
 export async function postLogin(
   body: LoginBodyRequestType
@@ -29,3 +30,4 @@ export async function postLogin(
     ...userData,
   };
 }
+

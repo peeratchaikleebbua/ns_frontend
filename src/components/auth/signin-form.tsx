@@ -15,6 +15,7 @@ import { LoginBodyRequestType, signInSchema } from "@/types/authType/login.d";
 import FormError from "./form-error";
 import { useState } from "react";
 import SignInAuth from "./signin-auth";
+import { redirect } from "next/navigation";
 
 export function SignInForm() {
   const [messageError, setMessageError] = useState<string>("");
@@ -34,12 +35,9 @@ export function SignInForm() {
       setLoading(true);
 
       const signInSubmit = await SignInAuth({ values });
-      console.log("signInSubmit", signInSubmit);
       if (signInSubmit) {
         setMessageError("Invalid Credential");
       }
-
-      setLoading(false);
     },
   });
 

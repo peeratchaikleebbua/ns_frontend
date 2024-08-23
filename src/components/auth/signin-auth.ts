@@ -18,7 +18,8 @@ async function SignInAuth({ values }: SignInAuthType) {
     console.error("Sign-in error:", signInError);
     return signInError.message
   }
-  redirect("/todo");
+
+  redirect('/todo')
 }
 
 export default SignInAuth;

@@ -9,7 +9,7 @@ export function CustomSignOut() {
         await signOut()
       }}
     >
-      <Button color="error" type="submit">Sign Out</Button>
+      <Button variant="contained" color="error" type="submit">Sign Out</Button>
     </form>
   )
 }
