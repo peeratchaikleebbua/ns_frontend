@@ -11,18 +11,18 @@ import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import TodoCard from "./todoCard";
 import TodoDialog from "./todoDialog";
-import { useSession } from "next-auth/react";
 import useClientFetch from "@/hooks/useFetchClientSide";
-import TodoCreateButton from "./todoCreateButton";
-import { useRouter } from "next/navigation";
+import TodoCreateButton from "./todoCreateButton"
+import { useSession } from "next-auth/react";
 
 function TodoView({ todoList }: TodoViewType) {
   const [todos, setTodos] = useState<TodoType[]>(todoList ? todoList : []);
   const [openDialog, setOpenDialog] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState<TodoType | null>(null);
-  const { data: session, status } = useSession();
-  const router = useRouter();
+  const { data: session, status } = useSession({
+    required: true,
+  });
   const { get, post, patch, deleteClient } = useClientFetch();
 
   const fetchTodo = async () => {
@@ -53,16 +53,15 @@ function TodoView({ todoList }: TodoViewType) {
   const handleCreateTodo = async (
     createdTodoValues: TodoPostBodyRequestType
   ) => {
-      try {
-        console.log("here cra", createdTodoValues);
-        await post(`todo`, createdTodoValues);
-        handleClose();
-        setIsEdit(false);
-        await fetchTodo();
-      } catch (error) {
-        console.error("Error updating todo:", error);
-      }
-
+    try {
+      console.log("here cra", createdTodoValues);
+      await post(`todo`, createdTodoValues);
+      handleClose();
+      setIsEdit(false);
+      await fetchTodo();
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
   };
 
   const handleSave = async (updatedTodoValues: TodoPutBodyRequestType) => {
@@ -87,16 +86,15 @@ function TodoView({ todoList }: TodoViewType) {
     }
   };
 
-  console.log('session', session)
-  console.log('status', status)
+  console.log("session", session);
+  console.log("status", status);
 
   useEffect(() => {
     if (status === "authenticated") {
       fetchTodo();
-    } else if (status === "unauthenticated") {
-      router.refresh();
     }
   }, [status]);
+
   return (
     <React.Fragment>
       <Grid container>
