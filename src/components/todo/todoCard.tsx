@@ -7,16 +7,15 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import UserChip from "../user/userChip";
+import UserChip from "../ui/user/userChip";
 import { useSession } from "next-auth/react";
 import { TodoCardType } from "@/types/todoType/todo";
 import { dateFormat } from "@/utils/dateFormat";
 import { Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { deleteFetch } from "@/hooks/useFetchServerSide";
-import useClientFetch from "@/hooks/useFetchClientSide";
-import ConfirmDialog from "../confirm/confirmDialog";
+import ConfirmDialog from "../ui/confirm/confirmDialog";
+
 
 export default function TodoCard({
   id,

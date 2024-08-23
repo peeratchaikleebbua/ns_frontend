@@ -18,7 +18,7 @@ import {
 import React from "react";
 import { CustomSignOut } from "../auth/signout-button";
 import { SignInButton } from "../auth/signin-button";
-import UserChip from "../user/userChip";
+import UserChip from "../ui/user/userChip";
 
 async function NavBar() {
   const session = await auth();
