@@ -6,7 +6,7 @@ import { getServerFetch } from "@/hooks/useFetchServerSide";
 import { getSession } from "@/hooks/getSession";
 import { redirect } from "next/navigation";
 
-async function Todo({ data }: { data: any[] }) {
+async function Todo() {
   const session = await getSession()
   const user = session?.user;
   if (!user) redirect("/login")
