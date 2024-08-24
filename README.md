@@ -91,3 +91,4 @@ Start the server
 ## 🛠 Self-Note
 
 https://reetesh.in/blog/server-action-with-tanstack-query-in-next.js-explained
+https://reetesh.in/blog/react-cache-function-explained
