@@ -68,7 +68,7 @@ Contact me to get values
 
 `NEXT_LOCAL_URL`
 
-`NEXT_LOCAL_URL`
+`NEXT_AUTH`
 
 `NEXTAUTH_SECRET`
 
