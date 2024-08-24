@@ -1,6 +1,5 @@
 "use server"
 
-import { BASE_URL } from "@/constants/service.contant";
 import { postServerFetch } from "@/hooks/useFetchServerSide";
 import {
   LoginBodyRequestType,

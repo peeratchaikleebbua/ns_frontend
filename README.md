@@ -27,7 +27,8 @@ The project is organized as follows:
 │   │   └── useFetchClientSide.ts       # Hook for client-side data fetching
 │   │   └── useFetchServerSide.ts       # Hook for server-side data fetching
 │   ├── service/               
-│   │   └── login.service.ts            # login api service
+│   │   └── login.service.ts            # login api service // server action
+│   │   └── todo.service.ts             # todo api service // server action
 │   ├── types/                      # TypeScript type definitions
 │   │   ├── authType/                   # Types related to authentication
 │   │   ├── todoType/                   # Types related to todos
@@ -41,6 +42,5 @@ The project is organized as follows:
 │   │   └── login/                      # login page for the app
 │   │   └── todo/                       # todo page for the app
 │   │   └── api/                
-│   │       ├── auth/                   # auth api related            
-│   │       ├── todo/                   # todo api related// to avoid CORS issue on client side           
+│   │       ├── auth/                   # auth api related       
 ├── .env                            # Environment variables

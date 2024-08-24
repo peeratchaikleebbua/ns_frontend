@@ -1,4 +1,3 @@
-import { FormErrorType } from "@/types/authType/login";
 import { TodoErrorFormType } from "@/types/todoType/todo";
 import { Chip } from "@mui/material";
 import React from "react";
