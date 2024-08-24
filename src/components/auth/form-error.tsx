@@ -1,5 +1,5 @@
 import { FormErrorType } from "@/types/authType/login";
-import { Box, Chip } from "@mui/material";
+import { Chip } from "@mui/material";
 import React from "react";
 
 function FormError({ message }: FormErrorType) {

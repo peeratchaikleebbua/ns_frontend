@@ -15,7 +15,8 @@ import { Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ConfirmDialog from "../ui/confirm/confirmDialog";
-
+import { deleteTodo } from "@/service/todo/todo.service";
+import { auth } from "@/auth";
 
 export default function TodoCard({
   id,
@@ -24,15 +25,14 @@ export default function TodoCard({
   created_by,
   created_at,
   updated_at,
+  username,
   handleOpenDialog,
-  onDelete
 }: TodoCardType) {
-  const user = useSession();
   const [openConfirmDialog, setOpenConfirmDialog] = React.useState(false);
 
   const handleDelete = async () => {
     try {
-      await onDelete(id)
+      await deleteTodo(id);
     } catch (error) {
       console.error("Error deleting todo:", error);
     } finally {
@@ -44,7 +44,7 @@ export default function TodoCard({
     <>
       <Card>
         <CardHeader
-          avatar={<UserChip username={user.data?.user?.username} />}
+          avatar={<UserChip username={username} />}
           title={title}
           subheader={`สร้างวันที่: ${dateFormat(created_at.toString())}`}
         />

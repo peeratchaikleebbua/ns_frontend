@@ -37,8 +37,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           const login = await postLogin({ username, password });
+          console.log("login", login);
+
           if (!login.isValid) {
-            
             throw new Error("User not found.");
           }
 

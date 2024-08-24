@@ -1,5 +1,3 @@
-
-import { auth } from "@/auth";
 import { SignInForm } from "@/components/auth/signin-form";
 import { getSession } from "@/hooks/getSession";
 import { redirect } from "next/navigation";

@@ -17,7 +17,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import { CustomSignOut } from "../auth/signout-button";
-import { SignInButton } from "../auth/signin-button";
 import UserChip from "../ui/user/userChip";
 
 async function NavBar() {

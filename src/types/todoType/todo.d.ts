@@ -1,17 +1,16 @@
-import { ApiResponseType } from "../hookType/useFetchType";
 import * as yup from "yup";
+import { ApiResponseType } from "../hookType/useFetchType";
 
 export const todoSchema = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
 });
 
+export const todoIdParamsSchema = yup.string().required("id is required")
+
 export type TodoViewType = {
-  todoList: TodoType[] | undefined;
-  // updatedTodo: (
-  //   id: string,
-  //   updatedTodo: TodoPutBodyRequestType
-  // ) => Promise<void>;
+  todoList: TodoType[];
+  username: string | undefined;
 };
 
 export type TodoErrorFormType = { isValid: boolean };
@@ -21,8 +20,6 @@ export type TodoDialogType = {
   handleClose: () => void;
   todoData: TodoType | null;
   isEdit: boolean;
-  onSave: (updatedTodoValues: TodoPutBodyRequestType) => Promise<void>;
-  onCreate: (createdTodoValues: TodoPostBodyRequestType) => Promise<void>
 };
 
 export type TodoType = {
@@ -35,8 +32,8 @@ export type TodoType = {
 };
 
 export type TodoCardType = TodoType & {
+  username: string | undefined;
   handleOpenDialog: (todo: TodoType) => void;
-  onDelete: (id: string) => promise<void>;
 };
 
 export type TodoCreateButtonType = {

@@ -1,9 +1,9 @@
-// hooks/useClientFetch.ts
 import { useSession } from "next-auth/react";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { BASE_LOCAL_URL, BASE_URL } from "@/constants/service.contant";
 import { FetchMethod } from "@/types/hookType/useFetchType";
 
+// another way to handle api besides server action
 // use Nextjs Server route to handle NeverSitup api and avoid cors issue on client side
 
 const useClientFetch = () => {

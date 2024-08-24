@@ -14,8 +14,8 @@ import { useFormik } from "formik";
 import { LoginBodyRequestType, signInSchema } from "@/types/authType/login.d";
 import FormError from "./form-error";
 import { useState } from "react";
-import SignInAuth from "./signin-auth";
 import { redirect } from "next/navigation";
+import { SignInAuth } from "@/service/login/login.service";
 
 export function SignInForm() {
   const [messageError, setMessageError] = useState<string>("");
@@ -34,9 +34,10 @@ export function SignInForm() {
     onSubmit: async (values) => {
       setLoading(true);
 
-      const signInSubmit = await SignInAuth({ values });
-      if (signInSubmit) {
+      const inValidSignin = await SignInAuth({ values });
+      if (inValidSignin) {
         setMessageError("Invalid Credential");
+        setLoading(false);
       }
     },
   });

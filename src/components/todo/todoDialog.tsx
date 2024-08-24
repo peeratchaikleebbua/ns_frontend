@@ -17,13 +17,12 @@ import {
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import TodoFormError from "./todoFormError";
+import { createTodo, patchTodo } from "@/service/todo/todo.service";
 
 function TodoDialog({
   open,
   handleClose,
   todoData,
-  onSave,
-  onCreate,
   isEdit,
 }: TodoDialogType) {
   const todoFormik = useFormik({
@@ -32,20 +31,15 @@ function TodoDialog({
       description: todoData?.description ? todoData?.description : "",
     },
     onSubmit: async (values) => {
-      console.log("values", values);
-
-      if (isEdit) {
-        console.log("edit save");
-        await onSave(values);
+      if (isEdit && todoData) {
+        await patchTodo(todoData.id, values);
       } else {
-        console.log("create save");
-        await onCreate(values);
+        await createTodo(values);
       }
+      handleClose();
     },
     validationSchema: todoSchema,
   });
-
-  console.log("todoFormik", todoFormik.isValid);
 
   return (
     <Dialog open={open} onClose={handleClose}>

@@ -11,6 +11,11 @@ export type LoginBodyRequestType = {
   password: string;
 };
 
+export type LoginPostResponseAType = {
+  username: string;
+  access_token: string;
+};
+
 export type LoginResponseType = {
   isValid: boolean;
   username?: string;
