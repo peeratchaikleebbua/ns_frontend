@@ -1,5 +1,9 @@
 # Todo App with Next.js, MUI, and NextAuth
 
+## Tech Stack
+
+**Client:** Next.js, MUI, Yup, Formik, Auth.js
+
 ## Overview
 
 Todo App
@@ -7,7 +11,6 @@ Todo App
 ## Project Structure
 
 The project is organized as follows:
-
 
 ```plaintext
 /todo_app
@@ -44,3 +47,42 @@ The project is organized as follows:
 │   │   └── api/                
 │   │       ├── auth/                   # auth api related       
 ├── .env                            # Environment variables
+```
+
+## SEO Checklist
+1. Meta tags /
+2. JSON-LD Schema X
+3. Sitemap /
+4. robots.txt /
+5. Link tags /
+6. Script optimization /
+7. Image optimization X
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+Contact me to get values
+
+`NEXT_PUBLIC_HOST`
+
+`NEXT_LOCAL_URL`
+
+`NEXT_LOCAL_URL`
+
+`NEXTAUTH_SECRET`
+
+## Run Locally
+
+Clone the project
+
+Install dependencies
+
+```bash
+  pnpm install
+```
+
+Start the server
+
+```bash
+  pnpm dev
+```
