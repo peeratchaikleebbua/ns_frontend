@@ -87,3 +87,7 @@ Start the server
 ```bash
   pnpm dev
 ```
+
+## 🛠 Self-Note
+
+https://reetesh.in/blog/server-action-with-tanstack-query-in-next.js-explained
