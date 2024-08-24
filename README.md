@@ -61,6 +61,7 @@ The project is organized as follows:
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
+
 Contact me to get values
 
 `NEXT_PUBLIC_HOST`
