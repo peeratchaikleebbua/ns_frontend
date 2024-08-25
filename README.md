@@ -94,7 +94,7 @@ Install dependencies
   pnpm install
 ```
 
-Start the server
+Start the local development
 
 ```bash
   pnpm dev
