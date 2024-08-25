@@ -7,6 +7,7 @@ import TodoCard from "./todoCard";
 import TodoDialog from "./todoDialog";
 import TodoCreateButton from "./todoCreateButton";
 import SkeletonSuspense from "../ui/suspense/skeletonSuspense";
+import EmptySuspense from "../ui/suspense/emptySuspense";
 
 function TodoView({ todoList, username }: TodoViewType) {
   const [openDialog, setOpenDialog] = useState(false);
@@ -32,24 +33,29 @@ function TodoView({ todoList, username }: TodoViewType) {
 
   return (
     <React.Fragment>
-      <Grid container>
-        {todoList.map((todo) => (
-          // <Suspense key={todo.id} fallback={<SkeletonSuspense />}>
-          <Grid item xs={12} key={todo.id}>
-            <TodoCard
-              id={todo.id}
-              title={todo.title}
-              description={todo.description}
-              created_by={todo.created_by}
-              created_at={todo.created_at}
-              updated_at={todo.updated_at}
-              username={username}
-              handleOpenDialog={handleOpenEditDialog}
-            />
-          </Grid>
-          // </Suspense>
-        ))}
-      </Grid>
+      {todoList.length > 0 ? (
+        <Grid container>
+          {todoList.map((todo) => (
+            // <Suspense key={todo.id} fallback={<SkeletonSuspense />}>
+            <Grid item xs={12} key={todo.id}>
+              <TodoCard
+                id={todo.id}
+                title={todo.title}
+                description={todo.description}
+                created_by={todo.created_by}
+                created_at={todo.created_at}
+                updated_at={todo.updated_at}
+                username={username}
+                handleOpenDialog={handleOpenEditDialog}
+              />
+            </Grid>
+            // </Suspense>
+          ))}
+        </Grid>
+      ) : (
+        <EmptySuspense username={username} />
+      )}
+
       {openDialog && (
         <TodoDialog
           open={openDialog}

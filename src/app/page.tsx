@@ -1,9 +1,8 @@
-
-import { getSession } from "@/hooks/getSession";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const session = await getSession();
+  const session = await auth();
   const user = session?.user;
   if (!user) {
     redirect("/login");

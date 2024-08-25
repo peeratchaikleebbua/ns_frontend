@@ -52,13 +52,20 @@ The project is organized as follows:
 ```
 
 ## SEO Checklist
-1. Meta tags /
+1. Static Metadata tags /
+1. Dynamic Metadata tags /
 2. JSON-LD Schema X
-3. Sitemap /
+3. Sitemap.xml /
 4. robots.txt /
 5. Link tags /
 6. Script optimization /
 7. Image optimization X
+8. OpenGraph Image X
+9. Core Web Vitals /
+10. NEXT SEO - Library for handling SEO /
+
+SEO 100%
+Check by Lighthouse Extention
 
 ## Environment Variables
 
