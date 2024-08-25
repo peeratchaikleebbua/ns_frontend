@@ -43,21 +43,24 @@ The project is organized as follows:
 │   │   │   └── fetchServerSide.ts              # server-side data fetching and CRUD
 │   ├── app/                        # Next.js App directory (if using App Router)
 │   │   └── layout.tsx                  # Root layout for the app
+│   │   └── robot.ts                    # Robot for the app SEO
+│   │   └── sitemap.ts                  # Sitemap for the app SEO
 │   │   └── page.tsx                    # Root page for the app
 │   │   └── login/                      # login page for the app
 │   │   └── todo/                       # todo page for the app
 │   │   └── api/                
 │   │       ├── auth/                   # auth api related       
 ├── .env                            # Environment variables
+├── next-seo.config.ts              # Default SEO for Todo App
 ```
 
 ## SEO Checklist
 1. Static Metadata tags /
-1. Dynamic Metadata tags /
+1. Dynamic Metadata tags X
 2. JSON-LD Schema X
 3. Sitemap.xml /
 4. robots.txt /
-5. Link tags /
+5. Link tags X
 6. Script optimization /
 7. Image optimization X
 8. OpenGraph Image X
@@ -102,4 +105,6 @@ Start the server
 https://reetesh.in/blog/server-action-with-tanstack-query-in-next.js-explained => refetchOnMouth and refetchOnReconnect => false, and also staletime as well
 https://reetesh.in/blog/react-cache-function-explained
 https://www.youtube.com/watch?v=yVsaCVEfPn4
+https://blog.logrocket.com/manage-seo-next-js-with-next-seo/
+https://www.youtube.com/watch?v=TvrQnBDIDpI&t=1049s
 AVOID NEXT_PUBLIC since it will be readable on user browser

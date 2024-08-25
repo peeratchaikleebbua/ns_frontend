@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Todo App for Create Update Read Delete",
     type: "website",
     locale: "en_US",
-    url: "localhost:3000",
+    url: "localhost:3000/image", // this is just for mock since this app does not have any image
     siteName: "Todo App",
   },
 };
