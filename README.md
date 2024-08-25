@@ -26,7 +26,6 @@ The project is organized as follows:
 │   ├── constants/                  # Project-wide constants (e.g., API URLs)
 │   │   └── service.constant.ts         # constant for service and api call
 │   ├── hooks/                      # Custom React hooks
-│   │   └── getSession.ts               # Hook for getSession after login
 │   │   └── useFetchClientSide.ts       # Hook for client-side data fetching
 │   ├── service/               
 │   │   └── login.service.ts            # login api service // server action
@@ -43,14 +42,14 @@ The project is organized as follows:
 │   │   │   └── fetchServerSide.ts              # server-side data fetching and CRUD
 │   ├── app/                        # Next.js App directory (if using App Router)
 │   │   └── layout.tsx                  # Root layout for the app
-│   │   └── robot.ts                    # Robot for the app SEO
+│   │   └── robots.ts                    # Robot for the app SEO
 │   │   └── sitemap.ts                  # Sitemap for the app SEO
 │   │   └── page.tsx                    # Root page for the app
 │   │   └── login/                      # login page for the app
 │   │   └── todo/                       # todo page for the app
 │   │   └── api/                
 │   │       ├── auth/                   # auth api related       
-├── .env                            # Environment variables
+├── .env.local                      # Environment variables
 ├── next-seo.config.ts              # Default SEO for Todo App
 ```
 
