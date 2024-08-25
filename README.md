@@ -75,7 +75,7 @@ To run this project, you will need to add the following environment variables to
 
 Contact me to get values
 
-`NEXT_PUBLIC_HOST`
+`NEXT_HOST`
 
 `NEXT_LOCAL_URL`
 
