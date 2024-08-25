@@ -5,9 +5,9 @@ import {
   TodoGetAllResponseType,
   TodoPutBodyRequestType,
 } from "@/types/todoType/todo";
-import { getServerFetch } from "@/hooks/useFetchServerSide";
 import { redirect } from "next/navigation";
 import { getSession } from "@/hooks/getSession";
+import { getServerFetch } from "@/utils/server-utils/fetchServerSide";
 
 async function Todo() {
   const session = await getSession();

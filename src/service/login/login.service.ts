@@ -1,6 +1,6 @@
-"use server"
+"use server";
 
-import { postServerFetch } from "@/hooks/useFetchServerSide";
+
 import {
   LoginBodyRequestType,
   LoginPostResponseAType,
@@ -11,6 +11,7 @@ import {
 import { signIn } from "@/auth";
 import { CredentialsSignin } from "next-auth";
 import { redirect } from "next/navigation";
+import { postServerFetch } from "@/utils/server-utils/fetchServerSide";
 
 export async function postLogin(
   body: LoginBodyRequestType
@@ -38,8 +39,10 @@ export async function postLogin(
 }
 
 export async function SignInAuth({ values }: SignInAuthType) {
+  let isValidSignin;
+
   try {
-    await signIn("credentials", {
+    isValidSignin = await signIn("credentials", {
       redirect: false,
       username: values.username,
       password: values.password,
@@ -50,5 +53,9 @@ export async function SignInAuth({ values }: SignInAuthType) {
     return signInError.message;
   }
 
-  redirect("/todo");
+  // if signin is valid
+  // redirect to todo page
+  if (isValidSignin) {
+    redirect("/todo");
+  }
 }

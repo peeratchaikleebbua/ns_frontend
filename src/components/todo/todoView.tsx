@@ -1,14 +1,12 @@
 "use client";
 
-import {
-  TodoType,
-  TodoViewType,
-} from "@/types/todoType/todo";
+import { TodoType, TodoViewType } from "@/types/todoType/todo";
 import { Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import TodoCard from "./todoCard";
 import TodoDialog from "./todoDialog";
-import TodoCreateButton from "./todoCreateButton"
+import TodoCreateButton from "./todoCreateButton";
+import SkeletonSuspense from "../ui/suspense/skeletonSuspense";
 
 function TodoView({ todoList, username }: TodoViewType) {
   const [openDialog, setOpenDialog] = useState(false);
@@ -36,6 +34,7 @@ function TodoView({ todoList, username }: TodoViewType) {
     <React.Fragment>
       <Grid container>
         {todoList.map((todo) => (
+          // <Suspense key={todo.id} fallback={<SkeletonSuspense />}>
           <Grid item xs={12} key={todo.id}>
             <TodoCard
               id={todo.id}
@@ -48,6 +47,7 @@ function TodoView({ todoList, username }: TodoViewType) {
               handleOpenDialog={handleOpenEditDialog}
             />
           </Grid>
+          // </Suspense>
         ))}
       </Grid>
       {openDialog && (

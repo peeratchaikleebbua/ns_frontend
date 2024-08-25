@@ -1,7 +1,10 @@
-import { FetchMethod, UseFetchType } from "@/types/hookType/useFetchType";
+import "server-only"; // ensure that these server-util is only used on server
+
+import { FetchMethod } from "@/types/hookType/useFetchType";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { BASE_URL } from "@/constants/service.contant";
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
+import { redirect } from "next/navigation";
 
 const fetchServerData = async <T>(
   url: string,
@@ -9,20 +12,31 @@ const fetchServerData = async <T>(
   body: any = null,
   headers: Record<string, string> | null
 ): Promise<T> => {
-  const session = await auth();
+  try {
+    const session = await auth();
 
-  const options: AxiosRequestConfig = {
-    method,
-    url: `${BASE_URL}/${url}`,
-    headers: {
-      ...headers,
-      Authorization: `Bearer ${session?.user.access_token}`,
-    },
-    data: body,
-  };
+    const options: AxiosRequestConfig = {
+      method,
+      url: `${BASE_URL}/${url}`,
+      headers: {
+        ...headers,
+        Authorization: `Bearer ${session?.user.access_token}`,
+      },
+      data: body,
+    };
 
-  const response: AxiosResponse<T> = await axios(options);
-  return response.data;
+    const response: AxiosResponse<T> = await axios(options);
+    return response.data;
+  } catch (error) {
+    // If error is related to authorization, handle it here
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
+      // Redirect to the login page if unauthorized
+      await signOut({ redirect: false });
+      redirect("/login");
+    }
+
+    throw error;
+  }
 };
 
 export const getServerFetch = async <T>(

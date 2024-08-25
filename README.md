@@ -28,7 +28,6 @@ The project is organized as follows:
 │   ├── hooks/                      # Custom React hooks
 │   │   └── getSession.ts               # Hook for getSession after login
 │   │   └── useFetchClientSide.ts       # Hook for client-side data fetching
-│   │   └── useFetchServerSide.ts       # Hook for server-side data fetching
 │   ├── service/               
 │   │   └── login.service.ts            # login api service // server action
 │   │   └── todo.service.ts             # todo api service // server action
@@ -37,8 +36,11 @@ The project is organized as follows:
 │   │   ├── todoType/                   # Types related to todos
 │   │   ├── confirmType/                # Types related to confirm
 │   │   ├── hookType/                   # Types related to hooks
-│   ├── utils/                      # Utility functions
-│   │   └── dateFormat.ts               # date format into readable format
+│   ├── utils/                      # Utility functions // Separate util server, util client
+│   │   ├── client-utils/                   # Types related to hooks
+│   │   │   └── dateFormat.ts                   # date format into readable format
+│   │   ├── server-utils/                   # Types related to hooks
+│   │   │   └── fetchServerSide.ts              # server-side data fetching and CRUD
 │   ├── app/                        # Next.js App directory (if using App Router)
 │   │   └── layout.tsx                  # Root layout for the app
 │   │   └── page.tsx                    # Root page for the app
@@ -92,3 +94,5 @@ Start the server
 
 https://reetesh.in/blog/server-action-with-tanstack-query-in-next.js-explained => refetchOnMouth and refetchOnReconnect => false, and also staletime as well
 https://reetesh.in/blog/react-cache-function-explained
+https://www.youtube.com/watch?v=yVsaCVEfPn4
+AVOID NEXT_PUBLIC since it will be readable on user browser

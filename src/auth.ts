@@ -1,11 +1,5 @@
-import NextAuth, { CredentialsSignin, NextAuthConfig } from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import {
-  LoginResponseType,
-  signInSchema,
-  LoginBodyRequestType,
-  User,
-} from "@/types/authType/login.d";
 import { postLogin } from "@/service/login/login.service";
 import { BASE_AUTH } from "@/constants/service.contant";
 
@@ -37,7 +31,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           const login = await postLogin({ username, password });
-          console.log("login", login);
 
           if (!login.isValid) {
             throw new Error("User not found.");
